@@ -2,9 +2,11 @@ package game;
 
 public class Game {
   String wordToGuess = "";
+  Integer remainingAttempts = 10;
 
-  public Game(String word) {
-    wordToGuess = word;
+  public Game() {
+    WordChoser choser = new WordChoser();
+    wordToGuess = choser.getRandomWordFromDictionary();
   }
   
   public static void main(String[] args) {    
@@ -22,6 +24,11 @@ public class Game {
     }
     return builder.toString();
   }
+
+  public Integer getRemainingAttempts() {
+    return remainingAttempts;
+  }
+  
   
 }
 
