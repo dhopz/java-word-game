@@ -7,15 +7,22 @@ public class Game {
     wordToGuess = word;
   }
   
-  public static void main(String[] args) {
-
+  public static void main(String[] args) {    
   }
 
-  String getWordToGuess() {
-    Integer lengthMinusOne = wordToGuess.length() - 1;
-    String fill = "_".repeat(lengthMinusOne);
-    char first = wordToGuess.charAt(0);
-    return first + fill;
+  public String getWordToGuess() {
+    StringBuilder builder = new StringBuilder();      
+    for (int i = 0; i < this.wordToGuess.length(); i++) {     
+      Character currentLetter = wordToGuess.charAt(0);
+      if (i == 0) {
+          builder.append(currentLetter);
+      } else {
+          builder.append("_");
+      }
+    }
+    return builder.toString();
   }
   
 }
+
+
