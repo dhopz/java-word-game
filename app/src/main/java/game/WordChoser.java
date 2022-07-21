@@ -1,7 +1,7 @@
 package game;
 import java.util.Random;
 
-
+// New Word Chooser Class
 public class WordChoser {
   public static final String[] DICTIONARY = {"MAKERS", "CANDIES", "DEVELOPER", "LONDON"}; 
 
