@@ -4,9 +4,9 @@ public class Game {
   String wordToGuess = "";
   Integer remainingAttempts = 10;
 
-  public Game() {
-    WordChoser choser = new WordChoser();
-    wordToGuess = choser.getRandomWordFromDictionary();
+  public Game(WordChoser choser) {
+    // WordChoser choser = new WordChoser();
+    this.wordToGuess = choser.getRandomWordFromDictionary();
   }
   
   public static void main(String[] args) {    

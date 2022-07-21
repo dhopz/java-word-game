@@ -7,13 +7,18 @@ import org.junit.Test;
 
 public class GameTest {
   @Test public void testsGetsWordToGuess() {
-    String mockedWord = mock(String);
-    Game game = new Game();
-    assertEquals(game.getWordToGuess(), "M_____");
+    WordChoser mockedWordChoser = mock(WordChoser.class);
+    when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
+    
+    Game game = new Game(mockedWordChoser);
+    assertEquals(game.getWordToGuess(), "D________");
   }
 
   @Test public void attemptsStartAtZero() {
-    Game game = new Game();
+    WordChoser mockedWordChoser = mock(WordChoser.class);
+    when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
+    
+    Game game = new Game(mockedWordChoser);
     assertEquals(game.getRemainingAttempts(), Integer.valueOf(10));
   }
 }
