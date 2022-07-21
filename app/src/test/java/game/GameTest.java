@@ -21,4 +21,22 @@ public class GameTest {
     Game game = new Game(mockedWordChoser);
     assertEquals(game.getRemainingAttempts(), Integer.valueOf(10));
   }
+
+  @Test public void testsGuessLetter() {
+    WordChoser mockedWordChoser = mock(WordChoser.class);
+    when(mockedWordChoser.getRandomWordFromDictionary()).thenReturn("DEVELOPER");
+
+    Game game = new Game(mockedWordChoser);
+    // game.guessLetter('Z');
+    assertEquals(game.guessLetter('P'), true); 
+  }
+
+  @Test public void testGuessLetterWrong() {
+    WordChoser mockedChoser = mock(WordChoser.class);
+    when(mockedChoser.getRandomWordFromDictionary()).thenReturn("MAKERS");
+
+    Game game = new Game(mockedChoser);
+
+    assertEquals(game.guessLetter('O'), false);
+}
 }
